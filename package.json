@@ -1,0 +1,26 @@
+{
+  "name": "books",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ant-design-vue": "^4.1.2",
+    "axios": "^1.6.7",
+    "core-js": "^3.36.0",
+    "fs": "^0.0.1-security",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/compiler-sfc": "^3.4.19",
+    "vite": "^5.1.0",
+    "vite-plugin-cp": "^4.0.8",
+    "vue-loader": "^17.4.2"
+  }
+}
