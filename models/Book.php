@@ -7,6 +7,7 @@ use yii\base\Model;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use app\events\MessageSendEvent;
 
 /**
  * This is the model class for table "books".
@@ -103,6 +104,12 @@ class Book extends ActiveRecord
             if ($author) {
                 $this->link('authors', $author);
             }
+
+           Yii::$app->book->trigger(
+                MessageSendEvent::EVENT_MESSAGE_SEND,
+                new MessageSendEvent($this, $author)
+            );
+
         }, $this->authorList);
 
         Yii::$app->session->setFlash('success', 'Запись сохранена');

@@ -63,7 +63,11 @@ class SiteController extends Controller
     {
         $this->layout = 'app';
 
-        return $this->render('index');
+        $authorList = Yii::$app->db->createCommand('SELECT id, name FROM authors')->queryAll();
+
+        return $this->render('index', [
+            'authorList' => $authorList
+        ]);
     }
 
     /**

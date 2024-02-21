@@ -2,7 +2,6 @@
 
 namespace app\controllers\api;
 
-use app\models\Author;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;

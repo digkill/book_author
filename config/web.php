@@ -1,5 +1,8 @@
 <?php
 
+use app\listeners\MessageSendListener;
+use app\models\Book;
+use app\services\SmsPilot\SmsPilot;
 use yii\web\UrlNormalizer;
 
 $params = require __DIR__ . '/params.php';
@@ -24,6 +27,13 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+        ],
+        'book' => [
+            'class' => Book::class,
+            'on message-send-event' => [MessageSendListener::class, 'handleSend'],
+        ],
+        'smsService' => [
+            'class' => SmsPilot::class,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
